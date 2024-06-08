@@ -134,6 +134,12 @@ void Logic()
 	// Update snake body
 	for (int i = score; i > 0; i--)
 	{
+		// Check self-collision
+		if (snakeX == snake[i].xPos && snakeY == snake[i].yPos)
+		{
+			gameOver = true;
+		}
+
 		// Move New snake part to previous part position
 		snake[i].xPos = snake[i - 1].xPos;
 		snake[i].yPos = snake[i - 1].yPos;
@@ -172,6 +178,7 @@ void Logic()
 	{
 		gameOver = true;
 	}
+
 }
 
 int main()
