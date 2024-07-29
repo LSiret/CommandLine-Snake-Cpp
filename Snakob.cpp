@@ -108,18 +108,30 @@ void Input()
 		switch (_getch())
 		{
 		case 'a':
-			dir = LEFT;
+			if (dir != RIGHT)		// Check for inverse direction
+			{
+				dir = LEFT;
+			}
 			break;
 		case 's':
-			dir = DOWN;
+			if (dir != UP)			// Check for inverse direction
+			{
+				dir = DOWN;
+			}
 			break;
 		case 'd':
-			dir = RIGHT;
+			if (dir != LEFT)		// Check for inverse direction
+			{
+				dir = RIGHT;
+			}
 			break;
 		case 'w':
-			dir = UP;
+			if (dir != DOWN)		// Check for inverse direction
+			{
+				dir = UP;
+			}
 			break;
-		case 'x':
+		case 'x':					// Debug end game
 			gameOver = true;
 			break;
 		default:
